@@ -1,0 +1,24 @@
+# Shared settings: every script (data, model, simulator, controller) reads this file.
+
+capacity_per_replica_rps: 6        # measured by Aaron: c7i-flex.large, 0.25 vCPU per replica, p95 < 300 ms
+min_replicas: 1
+max_replicas: 6                    # 6 x 0.25 vCPU, leaving room for nginx + controller
+vcpu_per_replica: 0.25
+step_seconds: 30                   # 1 trace hour = 30 s in the live run
+sla_ms: 300
+quantile: 0.9
+margin: 1.1                        # replicas = ceil(load x margin / C): P90 forecast (predictive) or last hour's load (reactive)
+price_per_replica_hour: 0.01413    # 0.08479 USD/h (c7i-flex.large, Mumbai, Linux on-demand) / 6
+energy: {min_watts_per_vcpu: 0.71, max_watts_per_vcpu: 3.46}
+
+trace:
+  project: en.wikipedia.org
+  test_days: 21                    # last 21 days of the trace are the test period
+  peak_replicas_target: 5          # busiest test hour should need about 5 replicas
+  test_start: "2026-10-01T00:00:00Z"   # written by data/build_trace.py
+
+live:                              # used only by controller/controller.py on the EC2 host
+  deploy_dir: deploy               # folder with docker-compose.yml (relative to repo root)
+  api_service: api
+  nginx_service: nginx
+  nginx_status_url: http://localhost/nginx_status
