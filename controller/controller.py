@@ -92,6 +92,20 @@ class MockEnv:
         return None
 
 
+def wait_for_load(env, min_rps=3.0, poll=0.5, timeout=600):
+    """Block until traffic actually arrives, so step 0 starts when Locust starts (not before)."""
+    print(f"waiting for load (>= {min_rps} req/s) ... start Locust now", flush=True)
+    start, last = time.monotonic(), env.request_count()
+    while time.monotonic() - start < timeout:
+        time.sleep(poll)
+        now = env.request_count()
+        if (now - last) / poll >= min_rps:
+            print("load detected - step clock started", flush=True)
+            return
+        last = now
+    raise SystemExit("no load arrived within 10 minutes - is Locust pointed at this instance?")
+
+
 # ---------------------------------------------------------------- forecaster
 def load_forecaster(kind):
     if kind == "dummy":
@@ -113,6 +127,7 @@ def main():
     ap.add_argument("--mock", action="store_true", help="no Docker/nginx: simulate load from the trace")
     ap.add_argument("--step-seconds", type=float, help="override config step_seconds (e.g. 1 for a fast mock test)")
     ap.add_argument("--steps", type=int, help="stop after this many steps (default: all 24 live hours)")
+    ap.add_argument("--no-wait", action="store_true", help="start the step clock immediately instead of waiting for load")
     args = ap.parse_args()
 
     cfg = yaml.safe_load((ROOT / "config.yaml").read_text())
@@ -146,6 +161,8 @@ def main():
     with open(out, "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=LOG_FIELDS)
         w.writeheader()
+        if not args.mock and not args.no_wait:
+            wait_for_load(env)
         prev_count, prev_t = env.request_count(), time.monotonic()
         next_boundary = prev_t + step_s
 

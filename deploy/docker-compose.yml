@@ -1,0 +1,14 @@
+services:
+  api:
+    build: .
+    cpus: "0.25"
+    expose:
+      - "8000"
+  nginx:
+    image: nginx:1.27
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - api

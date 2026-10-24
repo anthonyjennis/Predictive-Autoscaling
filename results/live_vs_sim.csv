@@ -1,0 +1,4 @@
+policy,hours,same_replicas_as_sim_%,within_1_replica_%,live_replica_hours,sim_replica_hours,live_cost_usd,sim_cost_usd,max_load_error_vs_trace_rps
+reactive,24,91.7,100.0,110,112,1.554,1.583,1.26
+predictive,24,95.8,100.0,113,114,1.597,1.611,15.36
+hybrid,24,100.0,100.0,116,116,1.639,1.639,0.52

@@ -1,0 +1,8 @@
+Method,Name,Error,Occurrences,First Seen,Last Seen
+GET,/,"ConnectTimeoutError(<HTTPConnection(host='43.205.214.204', port=80) at 0x218c79cdbf0>, 'Connection to 43.205.214.204 timed out. (connect timeout=None)')",1,2026-10-24T10:47:57Z,2026-10-24T10:47:57Z
+GET,/,RemoteDisconnected('Remote end closed connection without response'),16,2026-10-24T10:48:10Z,2026-10-24T10:49:10Z
+GET,/,"ConnectTimeoutError(<HTTPConnection(host='43.205.214.204', port=80) at 0x218c79cd7b0>, 'Connection to 43.205.214.204 timed out. (connect timeout=None)')",1,2026-10-24T10:47:57Z,2026-10-24T10:47:57Z
+GET,/,"ConnectTimeoutError(<HTTPConnection(host='43.205.214.204', port=80) at 0x218c79a6030>, 'Connection to 43.205.214.204 timed out. (connect timeout=None)')",1,2026-10-24T10:47:57Z,2026-10-24T10:47:57Z
+GET,/,"ConnectTimeoutError(<HTTPConnection(host='43.205.214.204', port=80) at 0x218c79a6470>, 'Connection to 43.205.214.204 timed out. (connect timeout=None)')",1,2026-10-24T10:47:57Z,2026-10-24T10:47:57Z
+GET,/,"ConnectTimeoutError(<HTTPConnection(host='43.205.214.204', port=80) at 0x218c79cd370>, 'Connection to 43.205.214.204 timed out. (connect timeout=None)')",1,2026-10-24T10:47:57Z,2026-10-24T10:47:57Z
+GET,/,"ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)",3,2026-10-24T10:47:57Z,2026-10-24T10:48:08Z

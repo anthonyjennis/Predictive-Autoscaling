@@ -1,0 +1,4 @@
+step,timestamp,policy,actual_rps,forecast_p50,forecast_p90,replicas,capacity_rps,util,violation_share,cost,energy_wh,cpu_util_measured,wall_clock
+0,2026-10-01T00:00:00Z,reactive,0.1,21.452,21.452,4,24,0.0042,0.0,0.05652,0.7215,0.0073,2026-10-24T09:57:22
+1,2026-10-01T01:00:00Z,reactive,0.1,0.1,0.1,1,6,0.0167,0.0,0.01413,0.189,0.0068,2026-10-24T09:57:31
+2,2026-10-01T02:00:00Z,reactive,0.1,0.1,0.1,1,6,0.0167,0.0,0.01413,0.189,0.0072,2026-10-24T09:57:42

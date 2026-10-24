@@ -1,0 +1,5 @@
+policy,avg_replicas,avg_utilisation_%,hours_over_capacity_%,requests_over_capacity_%,replica_hours,cost_usd,energy_kwh
+static,6.0,60.8693,0.0,0.0,3024,42.7291,1.8022
+reactive,4.5238,81.027,0.3968,0.0198,2280,32.2164,1.6699
+predictive,4.7083,77.3187,0.0,0.0,2373,33.5305,1.6867
+hybrid,4.7579,76.5031,0.0,0.0,2398,33.8837,1.6911

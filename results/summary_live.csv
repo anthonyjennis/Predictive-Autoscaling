@@ -1,0 +1,4 @@
+policy,controller_log,steps,avg_load_rps,avg_replicas,avg_utilisation_%,hours_over_capacity_%,replica_hours,cost_usd,energy_wh,measured_cpu_util_%,requests,failures,p50_ms,p95_ms,p99_ms,max_ms,slower_than_300ms_%
+reactive,live_reactive_20261024-1030.csv,24,22.626,4.583,82.572,4.167,110,1.554,81.659,30.319,16301,29,140.0,280.0,310.0,1199,2.0
+predictive,live_predictive_20261024-1047.csv,24,21.94,4.708,77.566,0.0,113,1.597,80.393,24.437,15808,24,24.0,77.0,590.0,27334,1.906
+hybrid,live_hybrid_20261024-1103.csv,24,22.662,4.833,77.883,0.0,116,1.639,82.912,30.268,16304,0,110.0,240.0,320.0,1234,1.667
